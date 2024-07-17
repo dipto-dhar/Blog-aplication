@@ -4,14 +4,25 @@ from django.db import models
 from admin_pannel.models import Category,Post,Settings,contacts,about_content
 from .forms import add_mail,contact_form
 from django.contrib import messages
-
+from django.core.paginator import Paginator
 
 
 site_data=Settings.objects.get(id=1)
-
+    # products=Product.objects.all()
+    # p=Paginator(products,20)
+    # p_no=request.GET.get('page')
+    # pages=p.get_page(p_no)
+    # total_pages=pages.paginator.num_pages
+    # return render(request,'admin_p/products.html',{'products':pages,'total_pages':[n+1 for n in range(total_pages) ] })
 
 def index(request):
-    posts=Post.objects.order_by('-date')
+    objects=Post.objects.order_by('-date')
+    p = Paginator(objects,10)
+    p_no=request.GET.get('page')
+    posts=p.get_page(p_no)
+    total_pages=posts.paginator.num_pages
+
+
     title=site_data.site_name +" - " + site_data.site_title
     featured_posts=Post.objects.filter(featured=True)
     mail_form=add_mail()
@@ -26,7 +37,7 @@ def index(request):
             messages.success(request,"Subscribe Successfully")
             return redirect("home")
         
-    return render(request,'frontend/index.html',{'posts':posts,'title':title,'site_data':site_data,'featured_posts':featured_posts,'mail_form':mail_form})
+    return render(request,'frontend/index.html',{'posts':posts,'title':title,'site_data':site_data,'featured_posts':featured_posts,'mail_form':mail_form,'total_pages':[n+1 for n in range(total_pages)]})
 
 def about(request):
     title="About"+ " - " + site_data.site_name

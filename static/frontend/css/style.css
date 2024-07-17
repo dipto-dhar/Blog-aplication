@@ -755,3 +755,15 @@ footer ul li:last-child a {
   margin-bottom: 0;
 }
 /*# sourceMappingURL=style.css.map */
+
+.page-link {
+ 
+
+  color: #e4112f!important;
+  background-color: #00000000!important;
+  border: 1px solid #e4112f!important;
+  font-weight: 600!important;
+}
+.pagination{
+  margin-bottom: 20px;
+}
