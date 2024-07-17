@@ -1,0 +1,340 @@
+<!doctype html>
+{% load static %}
+
+<html class="no-js h-100" lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Admin Pannel - {{ site.site_name }}</title>
+  <meta name="description" content="">
+  <link rel="shortcut icon" href="{{ site.fav_icon.url }}" type="image/x-icon">
+  <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <link rel="stylesheet" id="main-stylesheet" data-version="1.1.0" href="{% static "admin/styles/shards-dashboards.1.1.0.min.css" %}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="{% static "admin/styles/extras.1.1.0.min.css" %}">
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+</head>
+<body class="h-100" style="background-color: #1a191e;">
+<style>
+  body, html {
+    color: #ffffff !important;
+  }
+
+  table {
+    border: 1px solid #dddddd !important;
+  }
+
+  h1, h2, h3, h4, h5, a, p {
+    color: #ffffff !important;
+  }
+
+  .navbar {
+    background-color: #1a191e !important;
+  }
+  .main-navbar .navbar {
+    height: 10rem;
+}
+.main-sidebar .navbar-brand {
+  height: 10rem;
+}
+body > div > div > aside > div.main-navbar > nav{
+  border: none!important;
+}
+  .navbar-brand {
+    color: #ffffff !important;
+  }
+
+  .nav-link {
+    color: #ffffff !important;
+    border-bottom: none !important;
+  }
+  .nav-link {
+    color: #ffffff !important;
+    background-color: #1a191e!important;
+  }
+  .nav-link i{
+    color: #fff!important;
+  }
+
+select{
+  color: #ffffff !important;
+    background-color: #1a191e!important;
+}
+  .nav-link:hover {
+    background-color: #e4112f !important;
+  }
+  th{
+    background-color: #e4112f !important;
+  }
+
+  .main-sidebar {
+    background-color: #1a191e;
+    color: #ffffff !important;
+  }
+
+  .navbar-search {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+  }
+
+  .main-content {
+    background-color: #1a191e !important;
+    color: #ffffff !important;
+  }
+
+  .alert {
+    color: #ffffff !important;
+    background-color: #34353c !important;
+    border-color: #34353c !important;
+  }
+
+  .alert-success {
+    background-color: #28a745 !important;
+    color: #ffffff !important;
+  }
+
+  .close {
+    color: #ffffff !important;
+  }
+
+  .material-icons {
+    color: #ffffff !important;
+  }
+
+  .btn-login {
+    background-color: #007bff !important;
+    color: #ffffff !important;
+    border: none !important;
+  }
+
+  .btn-login:hover {
+    background-color: #0056b3 !important;
+  }
+
+  .post_div {
+    background-color: #1a191e !important;
+    box-shadow: 0px 0px 30px 10px #ffffff0a;
+    border-radius: 30px;
+    padding: 50px !important;
+  }
+
+  table, tr {
+    background-color: #1a191e !important;
+    color: #ffffff !important;
+    border: 1px solid #ffffff30 !important;
+    box-shadow: 0px 0px 10px 5px #ffffff0a !important;
+  }
+
+  input{
+    background-color: #1a191e !important;
+    color: #ffffff !important;
+  }
+span, p, a{
+    color: #ffffff !important;
+  }
+  .cke_dialog_body,.cke_dialog_tab,.cke_302_uiElement,.cke_dialog_ui_button,.cke_reset_all{
+    background-color: #1a191e!important;
+    color: #fff!important;
+  }
+  /* Custom Dropdown Hover */
+  .nav-item.dropdown:hover .dropdown-menu {
+    display: block;
+    transition: 1s!important;
+  }
+
+  .dropdown-menu {
+    display: none;
+    background-color: #1a191e;
+    border: none;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+    transition: .5s;
+  }
+
+  .dropdown-item {
+    color: #ffffff !important;
+    transition: .5s;
+  }
+
+  .dropdown-item:hover {
+    background-color: #e4112f !important;
+    transition: .5s;
+  }
+
+  .settings i{
+    color: #e4112f!important;
+    font-size: 30px;
+    position: absolute;
+    bottom: 30px;
+    left: 20px;
+    transition: .5s;
+  }
+  .settings i:hover{
+    transform: scale(1.5);
+    transition: .3s;
+  }
+  .logout i{
+    color: #e4112f!important;
+    font-size: 30px;
+    position: absolute;
+    bottom: 100px;
+    left: 20px;
+    transition: .5s;
+  }
+  .logout i:hover{
+    transform: scale(1.5);
+    transition: .5s;
+  }
+  .visit-site i{
+    color: #e4112f!important;
+    font-size: 30px;
+
+    transition: .5s;
+  }
+  .visit-site{
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    transition: .5s;
+    z-index: 100;
+  }
+  .visit-site i:hover{
+    transform: scale(1.3);
+    transition: .5s;
+  }
+</style>
+
+<div class="container-fluid">
+  <div class="row">
+    <!-- Main Sidebar -->
+    <a href="{% url '' %}" target="_blank" class="visit-site"> <i class="fa-solid fa-eye" alt="Visit Site"></i> </a>
+    <aside class="main-sidebar col-12 col-md-3 col-lg-2 px-0">
+
+      <div class="main-navbar">
+        <nav class="navbar align-items-stretch navbar-light bg-white flex-md-nowrap border-bottom p-0">
+          <a class="navbar-brand w-100 mr-0" href="{% url 'dashboard' %}" style="">
+            <div class="d-table m-auto">
+              <img id="main-logo" class="d-inline-block align-top mr-1" style="max-width: 150px;" src="{{site.logo.url}}" alt="Shards Dashboard">
+              
+            </div>
+          </a>
+          <a class="toggle-sidebar d-sm-inline d-md-none d-lg-none">
+            <i class="material-icons">&#xE5C4;</i>
+          </a>
+        </nav>
+      </div>
+
+      <div class="nav-wrapper">
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link " href="{% url 'dashboard' %}">
+              <i class="material-icons">edit</i>
+              <span>Blog Dashboard</span>
+            </a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+              <i class="material-icons">vertical_split</i>
+              <span>Blog</span>
+            </a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="{% url 'posts' %}">Blog Posts</a>
+              <a class="dropdown-item" href="{% url 'add-post' %}">Add New Post</a>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+              <i class="material-icons">note_add</i>
+              <span>Categories</span>
+            </a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="{% url 'categories' %}">View Categories</a>
+              <a class="dropdown-item" href="{% url 'add-category' %}">Add New Category</a>
+            </div>
+          </li>
+    
+          <li class="nav-item">
+            <a class="nav-link " href="{% url 'mails' %}">
+              <i class="material-icons">table_chart</i>
+              <span>Mail</span>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link " href="{% url 'add-user' %}">
+              <i class="material-icons">person</i>
+              <span>Add User</span>
+            </a>
+          </li>
+       
+          <li class="nav-item">
+            <a class="nav-link " href="{% url 'my-profile' %}">
+              <i class="material-icons">person</i>
+              <span>My Profile</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="{% url 'contacts' %}">
+              <i class="material-icons">person</i>
+              <span>Contacts</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="{% url 'about-page' %}">
+              <i class=" fa-solid fa-file"></i>
+              <span>About Page</span>
+            </a>
+          </li>
+          
+          <a href="{% url 'logout' %}" onclick="return confirm('Are you sure you want to Logout?');" class="logout"> <i class="fa-solid fa-power-off"></i></a>
+          <a href="{% url 'settings' %}" class="settings"> <i class="fa-solid fa-gear"></i></a>
+        </ul>
+      </div>
+    </aside>
+    <!-- End Main Sidebar -->
+    <main class="main-content col-lg-10 col-md-9 col-sm-12 p-0 offset-lg-2 offset-md-3">
+      <div class="navigation">
+        <!-- Navigation content goes here -->
+      </div>
+
+      {% if form.errors %}
+      <div class="alert alert-danger alert-dismissible fade show mb-0" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+        <i class="fa fa-check mx-2"></i>
+        {% for field in form %}
+        {% if field.errors %}
+            {{field.errors}}
+        {% endif %} 
+        {% endfor %}
+      </div>
+      {% endif %}
+
+      {% if messages %}
+      {% for message in messages %}
+      <div class="alert alert-success alert-dismissible fade show mb-0" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+        <i class="fa fa-check mx-2"></i>
+          {{message}}
+      </div>
+      {% endfor %}
+      {% endif %}
+
+      {% block body_block %}
+      <!-- Main content block -->
+      {% endblock %}
+    </main>
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/N"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+</body>
+</html>

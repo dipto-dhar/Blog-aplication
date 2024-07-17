@@ -1,0 +1,37 @@
+{% extends 'admins/base.html' %}
+
+{% block body_block %} 
+
+<style>
+  .form-container {
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      box-shadow: 0px 0px 30px 10px #ffffff0a;
+      border-radius: 10px;
+      background-color: #1a191e;
+  }
+</style>
+
+
+
+<div class="container mt-5">
+  <div class="form-container">
+    <div class="page-header row no-gutters py-4">
+      <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
+        <!-- <span class="text-uppercase page-subtitle">Dashboard</span> -->
+        <h3 class="page-title">Settings</h3>
+      </div>
+    </div>
+      <form id="registrationForm" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" class="btn btn-primary" value="Save">
+
+  </form>
+  </div>
+</div>
+
+<!-- Bootstrap JS -->
+
+{% endblock %}

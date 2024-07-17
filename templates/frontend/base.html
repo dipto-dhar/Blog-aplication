@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>{{title}}</title>
+
+    <!-- mobile responsive meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <!-- theme meta -->
+    <meta name="theme-name" content="galaxy" />
+
+    <!-- ** Plugins Needed for the Project ** -->
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="{% static "frontend/plugins/bootstrap/bootstrap.min.css" %}">
+    <link rel="stylesheet" href="{% static "frontend/plugins/fontawesome/css/all.css" %}">
+    
+    <!-- Main Stylesheet -->
+    <link href="{% static "frontend/css/style.css" %}" rel="stylesheet">
+   
+    <!--Favicon-->
+
+    <link rel="icon" href="{{ site_data.fav_icon.url }}" type="image/x-icon">
+
+</head>
+<body>
+    <!-- START preloader-wrapper -->
+    <div class="preloader-wrapper">
+        <div class="preloader-inner">
+            <div class="spinner-border text-red"></div>
+        </div>
+    </div>
+    <!-- END preloader-wrapper -->
+    
+    <!-- START main-wrapper -->
+    <section class="d-flex">
+  
+<!-- start of sidenav -->
+<aside><div class="sidenav position-sticky d-flex flex-column justify-content-between">
+    <a class="navbar-brand" href="{% url 'home' %}" class="logo">
+        <img src="{{ site_data.logo.url }}" alt="">
+    </a>
+    <!-- end of navbar-brand -->
+
+    <div class="navbar navbar-dark my-4 p-0 font-primary">
+        <ul class="navbar-nav w-100">
+            <li class="nav-item active">
+                <a class="nav-link text-white px-0 pt-0" href="{% url 'home' %}">Home</a>
+            </li>
+            <li class="nav-item ">
+                <a class="nav-link text-white px-0" href="{% url 'categories' %}">Category</a>
+            </li>
+            <li class="nav-item ">
+                <a class="nav-link text-white px-0" href="{% url 'about' %}">About</a>
+            </li>
+            <li class="nav-item ">
+                <a class="nav-link text-white px-0" href="{% url 'contact' %}">Contact</a>
+            </li>
+      
+      
+        </ul>
+    </div>
+ <ul class="list-inline nml-2">  <!-- end of navbar -->
+    {% if site_data.twiter_link == "" %}
+
+    {% else %}
+    
+        <li class="list-inline-item">
+            <a target="_blank" href="{{site_data.twiter_link}}" class="text-white text-red-onHover pr-2">
+                <span class="fab fa-twitter"></span>
+            </a>
+        </li>
+    
+    {% endif %}
+
+
+    {% if site_data.fb_link == "" %}
+
+    {% else %}
+        <li class="list-inline-item">
+            <a target="_blank" href="{{site_data.fb_link}}" class="text-white text-red-onHover p-2">
+                <span class="fab fa-facebook-f"></span>
+            </a>
+        </li>
+        {% endif %}
+
+
+    {% if site_data.insta_link == "" %}
+
+    {% else %}
+        <li class="list-inline-item">
+            <a target="_blank" href="{{site_data.insta_link}}" class="text-white text-red-onHover p-2">
+                <span class="fab fa-instagram"></span>
+            </a>
+        </li>
+    {% endif %}
+
+
+    {% if site_data.linkedin_link == "" %}
+
+    {% else %}
+        <li class="list-inline-item">
+            <a target="_blank" href="{{site_data.linkedin_link}}" class="text-white text-red-onHover p-2">
+                <span class="fab fa-linkedin-in"></span>
+            </a>
+        </li>
+    {% endif %}
+    </ul>
+    <!-- end of social-links -->
+</div></aside>
+<!-- end of sidenav -->
+    <div class="main-content">
+        <!-- start of mobile-nav -->
+<header class="mobile-nav pt-4">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-6">
+                <a href="{% url 'home' %}">
+                    <img src="{{ site_data.logo.url }}" alt="">
+                </a>
+            </div>
+            <div class="col-6 text-right">
+                <button class="nav-toggle bg-transparent border text-white">
+                    <span class="fas fa-bars"></span>
+                </button>
+            </div>
+        </div>
+    </div>
+</header>
+<div class="nav-toggle-overlay"></div>
+<!-- end of mobile-nav -->
+
+
+
+
+
+
+
+{% block body_block %}
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+<!-- start of footer -->
+<footer class="bg-dark">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-lg-3 col-sm-6 mb-5">
+                <h5 class="font-primary text-white mb-4">Inspirations</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#!">Privacy State</a></li>
+                    <li><a href="#!">Privacy</a></li>
+                    <li><a href="#!">State</a></li>
+                    <li><a href="#!">Privacy</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-3 col-sm-6 mb-5">
+                <h5 class="font-primary text-white mb-4">Templates</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#!">Privacy State</a></li>
+                    <li><a href="#!">Privacy</a></li>
+                    <li><a href="#!">State</a></li>
+                    <li><a href="#!">Privacy</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-3 col-sm-6 mb-5">
+                <h5 class="font-primary text-white mb-4">Resource</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#!">Privacy State</a></li>
+                    <li><a href="#!">Privacy</a></li>
+                    <li><a href="#!">State</a></li>
+                    <li><a href="#!">Privacy</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-3 col-sm-6 mb-5">
+                <h5 class="font-primary text-white mb-4">Company</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#!">Privacy State</a></li>
+                    <li><a href="#!">Privacy</a></li>
+                    <li><a href="#!">State</a></li>
+                    <li><a href="#!">Privacy</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- end of footer -->
+    </div>
+
+    </section>
+    <!-- END main-wrapper -->
+
+    <!-- All JS Files -->
+    <script src="{% static "frontend/plugins/jQuery/jquery.min.js" %}"></script>
+    <script src="{% static "frontend/plugins/bootstrap/bootstrap.min.js" %}"></script>
+
+    <!-- Main Script -->
+    <script src="{% static "frontend/js/script.js" %}"></script>
+</body>
+</html>

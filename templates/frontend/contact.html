@@ -1,0 +1,104 @@
+
+{% extends 'frontend/base.html' %}
+
+{% block body_block %}       
+
+<style>
+
+#id_purpose{
+    padding-bottom:0px!important;
+}
+.msg-box{
+    height:400px ;
+    align-items: center;
+    vertical-align: middle;
+    /* box-shadow: 0 0 10px 10px #00000013; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.msg-box h4{
+    
+    font-size: 30px;
+    display: block;
+}
+.msg-box i{
+   
+    font-size: 30px;
+    border-radius: 50px;
+    background-color: #c40e29;
+    padding: 30px;
+    display: block;
+}
+</style>
+       <div class="container py-4 my-5">
+            
+            <div class="row">
+
+                {% if messages %}
+                {% for message in messages %}
+                <div class="col-md-5 m-auto msg-box">
+                  <i class="fa fa-check mx-2"></i>
+                    
+                    <h4>{{message}}</h4>
+                </div>
+                {% endfor %}
+                {% else %}
+                
+
+                <div class="col-md-10">
+                    <div class="contact-form bg-dark">
+                        <h1 class="text-white add-letter-space mb-5">Contact Us</h1>
+                        <form method="POST" class="needs-validation" novalidate>
+                            {% csrf_token %}
+                            
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group mb-5">
+                                        <label for="firstName" class="text-black-300">Your First Name</label>
+                                        {{ form.first_name }}
+                                        <p class="invalid-feedback">Your first-name is required!</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group mb-5">
+                                        <label for="lastName" class="text-black-300">Your Last Name</label>
+                                        {{ form.last_name }}
+                                        <p class="invalid-feedback">Your last-name is required!</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group mb-5">
+                                        <label for="email" class="text-black-300">E-Mail Address</label>
+                                        {{ form.email }}
+                                        <p class="invalid-feedback">Your email is required!</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group mb-5">
+                                        <label class="text-black-300">What Is This About?</label>
+                                        {{ form.purpose }}
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group mb-5">
+                                        <label for="message" class="text-black-300">Your message</label>
+                                        {{ form.description }}
+                                        <p class="invalid-feedback">Message is required!</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <button type="submit" class="btn btn-sm btn-primary">Send Now <img src="images/arrow-right.png" alt=""></button>
+                                </div>
+                            </div>
+                            
+                        </form>
+                    </div>
+                </div>{% endif %}
+            </div>
+
+
+
+        </div>
+
+        {% endblock %}

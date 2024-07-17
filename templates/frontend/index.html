@@ -1,0 +1,164 @@
+{% extends 'frontend/base.html' %}
+
+{% block body_block %} 
+
+
+        <div class="container pt-4 mt-5">
+            <div class="row justify-content-between">
+                <div class="col-lg-7">
+
+
+                    {% for post in posts %}
+
+                    <div class="card post-item bg-transparent border-0 mb-5 ">
+                        <a href="{% url 'post' post.id %}">
+                            <img class="card-img-top rounded-0" src="media/{{ post.image }}" alt="{{post.title}}">
+                        </a>
+                        <div class="card-body px-0">
+                            <h2 class="card-title">
+                                <a class="text-white opacity-75-onHover" href="{% url 'post' post.slug %}">{{post.title}}</a>
+                            </h2>
+                            <ul class="post-meta mt-3">
+                                <li class="d-inline-block mr-3">
+                                    <span class="fas fa-clock text-primary"></span>
+                                    <a class="ml-1" href="#">{{post.date}}</a>
+                                </li>
+                                <li class="d-inline-block">
+                                    <span class="fas fa-list-alt text-primary"></span>
+                                    <a class="ml-1" href="#">{{post.category}}</a>
+                                </li>
+                            </ul>
+                            <p class="card-text my-4">{{post.desc|safe|striptags|truncatewords:50}}......</p>
+                            <a href="{% url 'post' post.id %}" class="btn btn-primary read-more">Read More <img src="images/arrow-right.png" alt=""></a>
+                        </div>
+                    </div>
+                    <!-- end of post-item -->
+                     {% empty %}
+
+                     <div class="widget bg-dark p-4 text-center mx-auto">
+                        <br>
+                        <h2>No Post Found</h2>
+                        <br>
+                   </div>
+
+                    {% endfor %}
+             
+                    <!-- end of post-item -->
+                </div>
+                <div class="col-lg-4 col-md-5">
+                    <div class="widget bg-dark p-4 text-center">
+                        
+                         <form action="" method="GET">
+                            
+                            <div class="form-group">
+                                <input type="text" name="Search" class="form-control bg-transparent rounded-0 my-4" placeholder="Search ">
+                                
+                            </div>
+                            
+                            <div class="form-group d-flex justify-content-end">
+                                <button type="submit" class="btn btn-primary">Search <img src="images/arrow-right.png" alt=""></button>
+                            </div>
+                        </form>
+                    </div>
+
+
+
+
+
+
+
+                    <div class="widget text-center">
+                        <img class="author-thumb-sm rounded-circle d-block mx-auto" src="images/author-sm.png" alt="">
+                        <h2 class="widget-title text-white d-inline-block mt-4">About Us</h2>
+                        <p class="mt-4">Welcome to Read the Anime! We are passionate about all things anime and dedicated to bringing you engaging blog posts that explore the latest trends, reviews, and insights from the anime world. Join us on our journey as we dive deep into the stories, characters, and artistry that make anime so captivating.</p>
+                        <ul class="list-inline mt-3">
+                            <li class="list-inline-item">
+                                <a href="#!" class="text-white text-primary-onHover p-2">
+                                    <span class="fab fa-twitter"></span>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="#!" class="text-white text-primary-onHover p-2">
+                                    <span class="fab fa-facebook-f"></span>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="#!" class="text-white text-primary-onHover p-2">
+                                    <span class="fab fa-instagram"></span>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="#!" class="text-white text-primary-onHover p-2">
+                                    <span class="fab fa-linkedin-in"></span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- end of author-widget -->
+                    {% if messages %}
+
+                    {% for message in messages %}
+                
+                    <div class="widget bg-dark p-4 text-center">
+                        <h2 class="widget-title text-white d-inline-block mt-4">Thank You For Subscribing Our Newslatter</h2>
+            
+                        
+                    </div>
+                
+                    {% endfor %}
+                    {% else %}
+        
+                    <div class="widget bg-dark p-4 text-center">
+                        <h2 class="widget-title text-white d-inline-block mt-4">Subscribe Now</h2>
+                        <p class="mt-4">Subscribe for exclusive anime updates and insights. Join us on Read the Anime for the latest news and reviews!</p>
+                        <form action="" method="POST">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                {{ mail_form.as_p }}
+                                <button type="submit"  class="btn btn-primary">Subscribe Now <img src="images/arrow-right.png"  alt=""></button>
+                            </div>
+                        </form>
+                    </div>
+                    {% endif %}
+                    <!-- end of subscription-widget -->
+
+                    <div class="widget">
+                        <div class="mb-5 text-center">
+                            <h2 class="widget-title text-white d-inline-block">Featured Posts</h2>
+                        </div>
+                     
+                        
+                        {% for post in featured_posts %}
+
+                        <div class="card post-item bg-transparent border-0 mb-5">
+                            <a href="{% url 'post' post.id %}">
+                                <img class="card-img-top rounded-0" src="{{ post.image.url }}" alt="{{post.title}}">
+                            </a>
+                            <div class="card-body px-0">
+                                <h2 class="card-title">
+                                    <a class="text-white opacity-75-onHover" href="{% url 'post' post.id %}">{{post.title}}</a>
+                                </h2>
+                                <ul class="post-meta mt-3 mb-4">
+                                    <li class="d-inline-block mr-3">
+                                        <span class="fas fa-clock text-primary"></span>
+                                        <a class="ml-1" href="#">{{post.date}}</a>
+                                    </li>
+                                    <li class="d-inline-block">
+                                        <span class="fas fa-list-alt text-primary"></span>
+                                        <a class="ml-1" href="#">{{post.category}}</a>
+                                    </li>
+                                </ul>
+                                <a href="{% url 'post' post.id %}" class="btn btn-primary read-more">Read More <img src="images/arrow-right.png" alt=""></a>
+                            </div>
+                        </div>
+
+                        {% endfor %}
+
+
+                        <!-- end of widget-post-item -->
+                    </div>
+                    <!-- end of post-items widget -->
+                </div>
+            </div>
+        </div>
+        {% endblock %}

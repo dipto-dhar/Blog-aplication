@@ -1,0 +1,61 @@
+{% extends 'admins/base.html' %}
+
+{% block body_block %} 
+
+<style>
+  .form-container {
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      box-shadow: 0px 0px 30px 10px #ffffff0e;
+      border-radius: 20px;
+      background-color: #1a191e;
+  }
+  .profilebox{
+    padding: 2rem;
+      box-shadow: 0px 0px 30px 10px #ffffff0e;
+      border-radius: 20px;
+      background-color: #1a191e;
+      margin-top: 50px;
+  }
+</style>
+       <!-- Page Header -->
+      
+      <!-- End Page Header -->
+<div class="row">
+
+  <div class="col-lg-8 m-auto profilebox">
+
+    <div class="page-header row no-gutters py-4">
+      <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
+        <span class="text-uppercase page-subtitle">Account</span>
+        <h3 class="page-title">My Profile</h3>
+      </div>
+    </div>
+    
+
+
+    <form id="registrationForm" method="POST">
+      {% csrf_token %}
+      <label for="">First Name</label>
+      {{ form.first_name }}<br>
+      <label for="">Last Name</label>
+      {{ form.last_name }}<br>
+      <label for="">Username</label>
+      {{ form.username }}<br>
+      <label for="">Email</label>
+      {{ form.email }}<br>
+
+
+
+      <input type="submit" class="btn btn-primary">
+
+</form>
+
+</div>
+<!-- End Default Light Table -->
+</div>
+
+<!-- Bootstrap JS -->
+
+{% endblock %}

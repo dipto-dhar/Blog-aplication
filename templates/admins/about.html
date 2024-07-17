@@ -1,0 +1,42 @@
+{% extends 'admins/base.html' %}
+
+{% block body_block %} 
+    <style>
+        .editor-toolbar button {
+            margin-right: 5px;
+        }
+        .editor-area {
+            border: 1px solid #ced4da;
+            padding: 10px;
+            min-height: 200px;
+            overflow-y: auto;
+        }
+        .post_div{
+            box-shadow: 10 10 10 10;
+            background-color: #fff;
+            padding: 30px;
+        }
+
+    </style>    <div class="container mt-5  post_div">
+        <div class="page-header row no-gutters py-4">
+            <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
+              <span class="text-uppercase page-subtitle">Pages</span>
+              <h3 class="page-title">Edit About Page</h3>
+            </div>
+          </div>
+        
+        <form enctype="multipart/form-data"  method="POST" >
+            {% csrf_token %}
+            {{form.as_p}}
+            {{form.media}}
+    
+            <input type="submit" class="btn btn-primary" value="Update">
+            
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    {% endblock %}
