@@ -25,7 +25,28 @@
     </div>
       <form id="registrationForm" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
-        {{ form.as_p }}
+        <label for="">Site Name</label>
+       
+        
+        {{ form.site_name}} 
+        <label for="">Site Title</label>
+        {{ form.site_title}}<br>
+        <label for="">Site Logo</label><br>
+        <img width="100px" src="{{site.logo.url}}" alt="{{site.site_title}}">
+        {{ form.logo}}<br><br>
+        <label for="">Site Icon</label><br>
+        <img width="50px" src="{{site.fav_icon.url}}" alt="{{site.site_title}}">
+        {{ form.fav_icon}}<br><br>
+        <label for="">Facebook Link</label>
+        {{ form.fb_link}}<br>
+        <label for="">Instagram Link</label>
+        {{ form.insta_link}}<br>
+        <label for="">Twiter Link</label>
+        {{ form.twiter_link}}<br>
+        <label for="">Linkdin Link</label>
+        {{ form.linkedin_link}}<br>
+        <label for="">Pinterest Link</label>
+        {{ form.pinterest_link}}<br>
         <input type="submit" class="btn btn-primary" value="Save">
 
   </form>
