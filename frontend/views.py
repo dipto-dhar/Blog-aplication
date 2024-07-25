@@ -29,7 +29,12 @@ def index(request):
     if request.method=='GET':
         query=request.GET.get('Search')
         if query != None:
-            posts=Post.objects.filter(title__icontains=query)
+            objects=Post.objects.filter(title__icontains=query)
+            p = Paginator(objects,10)
+            p_no=request.GET.get('page')
+            posts=p.get_page(p_no)
+            total_pages=posts.paginator.num_pages
+
     if request.method=='POST':
         mail_form=add_mail(request.POST)
         if mail_form.is_valid():
@@ -77,7 +82,7 @@ def single_category(request,slug):
     posts=Post.objects.filter(category=category)
 
 
-    return render(request,'frontend/single-category.html',{'posts':posts,'title':title,'site_data':site_data,'categories':categories})
+    return render(request,'frontend/single-category.html',{'posts':posts,'title':title,'site_data':site_data,'categories':categories,'category':category})
 
 
  

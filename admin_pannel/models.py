@@ -24,10 +24,19 @@ class Post(models.Model):
     desc=RichTextUploadingField(blank=True, null=True)
     image=models.ImageField(upload_to='blog_images/',null=True,blank=True)
     date=models.DateField(auto_now_add=True,blank=True, null=True)
+    # update_date=models.DateField(auto_now=True,blank=True, null=True, default='')
     category=models.ForeignKey(Category, null=True,related_name='posts', on_delete=models.SET_NULL,default=True)
     author= CurrentUserField()
+    # comment=models.TextField(max_length=500)
     featured=models.BooleanField()
     slug=AutoSlugField(populate_from='title',default=None,null=True,unique=True)
+
+
+class Comment(models.Model):
+    post=models.ForeignKey(Post, on_delete=models.CASCADE)
+    user= models.ForeignKey(User, on_delete=models.CASCADE)
+    massage=models.TextField(max_length=500)
+    date=models.DateField(auto_now_add=True)
    
 
     def __str__(self):
