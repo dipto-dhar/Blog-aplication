@@ -27,6 +27,10 @@ def admin_login(request):
                 login(request,user)
                 messages.success(request,"Succcessfully logged in")
                 return redirect('dashboard')
+            else:
+                messages.success(request,"Succcessfully logged in")
+                return render(request,'admins/index.html',{'site':site_data})
+
         else:
             return render(request,'admins/index.html',{'site':site_data})
 

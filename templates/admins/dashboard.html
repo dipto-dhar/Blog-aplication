@@ -1,6 +1,20 @@
 {% extends 'admins/base.html' %}
 
 {% block body_block %} 
+
+<style>
+  .card{
+    background: #1a191e;
+    box-shadow: 10px 10px 19px #0e0f10, -10px -10px 19px #1e1e1e;
+  }
+
+  a:hover{
+    text-decoration: none;
+  }
+  i{
+    color: #fff!important;
+  }
+</style>
           <!-- / .main-navbar -->
           <div class="main-content-container container-fluid px-4">
             <!-- Page Header -->
@@ -11,90 +25,35 @@
               </div>
             </div>
             <!-- End Page Header -->
-            <!-- Small Stats Blocks -->
-            <div class="row">
-              <div class="col-lg col-md-6 col-sm-6 mb-4">
-                <div class="stats-small stats-small--1 card card-small">
-                  <div class="card-body p-0 d-flex">
-                    <div class="d-flex flex-column m-auto">
-                      <div class="stats-small__data text-center">
-                        <span class="stats-small__label text-uppercase">Posts</span>
-                        <h6 class="stats-small__value count my-3">2,390</h6>
-                      </div>
-                      <div class="stats-small__data">
-                        <span class="stats-small__percentage stats-small__percentage--increase">4.7%</span>
-                      </div>
-                    </div>
-                    <canvas height="120" class="blog-overview-stats-small-1"></canvas>
+            
+            <!-- Dark Theme Shortcut Boxes -->
+            <div class="row mb-4">
+              <div class="col-md-4">
+                <a href="{% url 'add-post' %}" class="box-link">
+                  <div class="card card-small text-center p-3 text-light">
+                    <i class="fas fa-plus fa-3x mb-2 "></i>
+                    <h5 class="text-light">Add Blog Post</h5>
                   </div>
-                </div>
+                </a>
               </div>
-              <div class="col-lg col-md-6 col-sm-6 mb-4">
-                <div class="stats-small stats-small--1 card card-small">
-                  <div class="card-body p-0 d-flex">
-                    <div class="d-flex flex-column m-auto">
-                      <div class="stats-small__data text-center">
-                        <span class="stats-small__label text-uppercase">Pages</span>
-                        <h6 class="stats-small__value count my-3">182</h6>
-                      </div>
-                      <div class="stats-small__data">
-                        <span class="stats-small__percentage stats-small__percentage--increase">12.4%</span>
-                      </div>
-                    </div>
-                    <canvas height="120" class="blog-overview-stats-small-2"></canvas>
+              <div class="col-md-4">
+                <a href="{% url 'add-category' %}" class="box-link">
+                  <div class="card card-small text-center p-3 text-light">
+                    <i class="fas fa-plus fa-3x mb-2 "></i>
+                    <h5 class="text-light">Add Category</h5>
                   </div>
-                </div>
+                </a>
               </div>
-              <div class="col-lg col-md-4 col-sm-6 mb-4">
-                <div class="stats-small stats-small--1 card card-small">
-                  <div class="card-body p-0 d-flex">
-                    <div class="d-flex flex-column m-auto">
-                      <div class="stats-small__data text-center">
-                        <span class="stats-small__label text-uppercase">Comments</span>
-                        <h6 class="stats-small__value count my-3">8,147</h6>
-                      </div>
-                      <div class="stats-small__data">
-                        <span class="stats-small__percentage stats-small__percentage--decrease">3.8%</span>
-                      </div>
-                    </div>
-                    <canvas height="120" class="blog-overview-stats-small-3"></canvas>
+              <div class="col-md-4">
+                <a href="{% url 'settings' %}" class="box-link">
+                  <div class="card card-small text-center p-3 text-light">
+                    <i class="fas fa-cog fa-3x mb-2"></i>
+                    <h5 class="text-light">Settings</h5>
                   </div>
-                </div>
-              </div>
-              <div class="col-lg col-md-4 col-sm-6 mb-4">
-                <div class="stats-small stats-small--1 card card-small">
-                  <div class="card-body p-0 d-flex">
-                    <div class="d-flex flex-column m-auto">
-                      <div class="stats-small__data text-center">
-                        <span class="stats-small__label text-uppercase">Users</span>
-                        <h6 class="stats-small__value count my-3">2,413</h6>
-                      </div>
-                      <div class="stats-small__data">
-                        <span class="stats-small__percentage stats-small__percentage--increase">12.4%</span>
-                      </div>
-                    </div>
-                    <canvas height="120" class="blog-overview-stats-small-4"></canvas>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg col-md-4 col-sm-12 mb-4">
-                <div class="stats-small stats-small--1 card card-small">
-                  <div class="card-body p-0 d-flex">
-                    <div class="d-flex flex-column m-auto">
-                      <div class="stats-small__data text-center">
-                        <span class="stats-small__label text-uppercase">Subscribers</span>
-                        <h6 class="stats-small__value count my-3">17,281</h6>
-                      </div>
-                      <div class="stats-small__data">
-                        <span class="stats-small__percentage stats-small__percentage--decrease">2.4%</span>
-                      </div>
-                    </div>
-                    <canvas height="120" class="blog-overview-stats-small-5"></canvas>
-                  </div>
-                </div>
+                </a>
               </div>
             </div>
-            <!-- End Small Stats Blocks -->
+            <!-- End Dark Theme Shortcut Boxes -->
    
           </div>
   

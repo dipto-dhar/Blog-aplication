@@ -25,6 +25,9 @@
 
   table {
     border: 1px solid #dddddd !important;
+    box-shadow:10px 10px 19px #0e0f10, -10px -10px 19px #1e1e1e;
+
+
   }
 
   h1, h2, h3, h4, h5, a, p {
@@ -64,10 +67,10 @@ select{
     background-color: #1a191e!important;
 }
   .nav-link:hover {
-    background-color: #e4112f !important;
+    background-color: #1a1a1a !important;
   }
   th{
-    background-color: #e4112f !important;
+    background-color:  !important;
   }
 
   .main-sidebar {
@@ -105,18 +108,18 @@ select{
   }
 
   .btn-login {
-    background-color: #007bff !important;
+    background-color: #ffffff !important;
     color: #ffffff !important;
     border: none !important;
   }
 
   .btn-login:hover {
-    background-color: #0056b3 !important;
+    background-color: #1d1c1c !important;
   }
 
   .post_div {
     background-color: #1a191e !important;
-    box-shadow: 0px 0px 30px 10px #ffffff0a;
+    box-shadow: 10px 10px 19px #0e0f10, -10px -10px 19px #1e1e1e;
     border-radius: 30px;
     padding: 50px !important;
   }
@@ -124,8 +127,8 @@ select{
   table, tr {
     background-color: #1a191e !important;
     color: #ffffff !important;
-    border: 1px solid #ffffff30 !important;
-    box-shadow: 0px 0px 10px 5px #ffffff0a !important;
+    border: 1px solid #ffffff0a !important;
+ 
   }
 
   input{
@@ -149,7 +152,7 @@ span, p, a{
     display: none;
     background-color: #1a191e;
     border: none;
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+    box-shadow: 10px 10px 19px #0e0f10, -10px -10px 19px #1e1e1e;
     transition: .5s;
   }
 
@@ -159,12 +162,12 @@ span, p, a{
   }
 
   .dropdown-item:hover {
-    background-color: #e4112f !important;
+    background-color: #1d1c1c !important;
     transition: .5s;
   }
 
   .settings i{
-    color: #e4112f!important;
+    color: #ffffff!important;
     font-size: 30px;
     position: absolute;
     bottom: 30px;
@@ -176,7 +179,7 @@ span, p, a{
     transition: .3s;
   }
   .logout i{
-    color: #e4112f!important;
+    color: #ffffff!important;
     font-size: 30px;
     position: absolute;
     bottom: 100px;
@@ -188,7 +191,7 @@ span, p, a{
     transition: .5s;
   }
   .visit-site i{
-    color: #e4112f!important;
+    color: #ffffff!important;
     font-size: 30px;
 
     transition: .5s;
@@ -231,40 +234,47 @@ span, p, a{
           <li class="nav-item">
             <a class="nav-link " href="{% url 'dashboard' %}">
               <i class="material-icons">edit</i>
+              <i class="material-icons">vertical_split</i>
               <span>Blog Dashboard</span>
             </a>
           </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-              <i class="material-icons">vertical_split</i>
-              <span>Blog</span>
-            </a>
-            <div class="dropdown-menu">
-              <a class="dropdown-item" href="{% url 'posts' %}">Blog Posts</a>
-              <a class="dropdown-item" href="{% url 'add-post' %}">Add New Post</a>
-            </div>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-              <i class="material-icons">note_add</i>
-              <span>Categories</span>
-            </a>
-            <div class="dropdown-menu">
-              <a class="dropdown-item" href="{% url 'categories' %}">View Categories</a>
-              <a class="dropdown-item" href="{% url 'add-category' %}">Add New Category</a>
-            </div>
-          </li>
+
+
     
           <li class="nav-item">
+            <a class="nav-link " href="{% url 'posts' %}">
+              <i class="material-icons">vertical_split</i>
+              <span>Blogs</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="{% url 'add-post' %}">
+              <i class="material-icons">add</i>
+              <span>Add Blogs</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="{% url 'all_categories' %}">
+              <i class="material-icons">category</i>
+              <span>Categories</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="{% url 'add-category' %}">
+              <i class="material-icons">add</i>
+              <span>Add Category</span>
+            </a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link " href="{% url 'mails' %}">
-              <i class="material-icons">table_chart</i>
-              <span>Mail</span>
+              <i class="material-icons">mail</i>
+              <span>Subscribers</span>
             </a>
           </li>
 
           <li class="nav-item">
             <a class="nav-link " href="{% url 'add-user' %}">
-              <i class="material-icons">person</i>
+              <i class="material-icons">person_add</i>
               <span>Add User</span>
             </a>
           </li>
@@ -277,7 +287,7 @@ span, p, a{
           </li>
           <li class="nav-item">
             <a class="nav-link " href="{% url 'contacts' %}">
-              <i class="material-icons">person</i>
+              <i class="material-icons">contacts</i>
               <span>Contacts</span>
             </a>
           </li>

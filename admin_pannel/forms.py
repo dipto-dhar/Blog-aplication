@@ -104,6 +104,7 @@ class add_mail(forms.ModelForm):
 
 
 class modify_settings(forms.ModelForm):
+    footer_text=forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control'}))
     fb_link=forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control'}))
     insta_link=forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control'}))
     pinterest_link=forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control'}))

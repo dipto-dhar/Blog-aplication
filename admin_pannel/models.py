@@ -32,12 +32,6 @@ class Post(models.Model):
     slug=AutoSlugField(populate_from='title',default=None,null=True,unique=True)
 
 
-class Comment(models.Model):
-    post=models.ForeignKey(Post, on_delete=models.CASCADE)
-    user= models.ForeignKey(User, on_delete=models.CASCADE)
-    massage=models.TextField(max_length=500)
-    date=models.DateField(auto_now_add=True)
-   
 
     def __str__(self):
         return self.title
@@ -52,6 +46,7 @@ class Settings(models.Model):
     twiter_link=models.CharField(max_length=240)
     linkedin_link=models.CharField(max_length=240)
     pinterest_link=models.CharField(max_length=240)
+    footer_text=models.CharField(max_length=240,default='',null=True)
  
 
 
