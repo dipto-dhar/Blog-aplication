@@ -42,14 +42,14 @@
     }
 
     th {
-        background-color: #e4112f;
+        background-color: #000;
         color: white;
         text-transform: uppercase;
         font-weight: bold;
     }
 
-    img {
-        width: 50px;
+#categoryTable img {
+       width: 50px;
         height: 50px;
         object-fit: cover;
         border-radius: 8%;
@@ -77,7 +77,7 @@
         <tbody id="categoryTable">
             {% for category in categories %}
             <tr>
-                <td><img src="media/{{ category.cat_image }}" class="img-fluid" alt="{{category.cat_name}}">
+                <td><img src="{{ category.cat_image.url }}" class="img-fluid" alt="{{category.cat_name}}">
                 </td>
     
                 <td>{{category.cat_name}}</td>

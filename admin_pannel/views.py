@@ -147,7 +147,7 @@ def add_category(request):
         if form.is_valid():
             form.save()
             messages.success(request,"The Post Has Been Created Successfully")
-            return redirect("categories")
+            return redirect("all_categories")
     
     return render(request,'admins/add-category.html',{'form':form,'site':site_data})
 
@@ -163,7 +163,7 @@ def delete_category(request,pk):
     category=Category.objects.get(id=pk)
     category.delete()
     messages.success(request,"The Category Has Been Deleted Successfully")
-    return redirect('categories')
+    return redirect('all_categories')
 
 def edit_category(request,pk):
     category=Category.objects.get(id=pk)
@@ -173,7 +173,7 @@ def edit_category(request,pk):
         if form.is_valid():
             form.save()
             messages.success(request,"The Category Has Been Updated Successfully")
-            return redirect('categories')
+            return redirect('all_categories')
 
     return render(request,'admins/edit-category.html',{'form':form,'site':site_data})
 

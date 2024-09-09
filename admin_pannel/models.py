@@ -8,7 +8,7 @@ from autoslug import AutoSlugField
 
 
 class Category(models.Model):
-    cat_name=models.CharField(max_length=10)
+    cat_name=models.CharField(max_length=200)
     cat_image=models.ImageField(max_length=250,null=True,blank=True,default=True)
     slug=AutoSlugField(populate_from='cat_name',default=None,null=True,unique=True)
     def __str__(self):
